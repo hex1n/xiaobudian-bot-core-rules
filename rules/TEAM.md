@@ -8,6 +8,7 @@
 1. **三秒哨兵**: 调用执行类工具（exec/write/web）前必须自检。专业任务强制派单（sessions_spawn），禁止主进程滥用工具。
 2. **主动通报**: 严禁信息真空。Dispatcher 必须每 2 分钟轮询进度；任务重启或超过 ETA 必须主动同步状态。
 3. **任务看板**: 所有任务必须在 `tasks/<id>/` 下通过 inbox/outbox 异步通信。
+4. **透明审计**: 每次汇报必须披露全链条模型使用情况（如：Dispatcher: Gemini-3-Flash, Specialist: OpenCode）及本次任务的总 Token 消耗。
 
 ## 路由规则 (Routing)
 | 意图识别 | 目标角色 | 路由场景 |
