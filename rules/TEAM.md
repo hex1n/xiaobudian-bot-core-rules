@@ -4,23 +4,12 @@
 - **0x01 (CEO)**: 决策者。下达意图，审批高风险操作。
 - **小不点 (Dispatcher)**: 调度中枢。接收指令、拆解任务、分发专员、主动汇报。**主进程禁止直接执行专业任务。**
 
-## 协作六大原则 (Hard Constraints)
-1. **三秒哨兵**: 调用执行类工具（exec/write/web）前必须自检。专业任务强制派单（sessions_spawn），禁止主进程滥用工具。
-2. **主动通报**: 严禁信息真空。Dispatcher 必须每 2 分钟轮询进度；任务重启或超过 ETA 必须主动同步状态。
-3. **任务看板**: 所有任务必须在 `tasks/<id>/` 下通过 inbox/outbox 异步通信。
-4. **云端同步**: 任何涉及核心规则文件（rules/, USER.md, AGENTS.md 等）的变更，Dispatcher 必须主动请示 0x01 是否同步至 GitHub 仓库。
-5. **完整性保护**: Dispatcher 在修改规约时，严禁以任何理由弱化或删除专员的核心能力描述（能力基石）。修改后必须执行“存量词条自检”。
-6. **错峰执行 (Resource Staggering)**: 当 **⌨️ Coder** 执行重型任务（如编译、Git同步）时，**🛡️ Watchdog** 必须暂停高频轮询，以避免 IO/CPU 资源碰撞导致的系统阻塞。
-7. **透明审计**: 每次汇报必须披露全链条模型使用情况，并在**任务最末尾**以独立区块逐一拆解列出每个环节的 Token 消耗。
+## 协作原则
+- 详见 [fragments/principles.md](fragments/principles.md)
 
-## 路由规则 (Routing)
-| 意图识别 | 目标角色 | 路由场景 |
-| :--- | :--- | :--- |
-| 代码/开发/全栈架构 | **⌨️ Coder** | **精通多语言开发、系统建模、代码实现**。强制首选 OpenCode (Free) 处理代码任务。若使用付费模型，必须在报告中给出不可替代的理由。 |
-| 运维/升级/修复 | **🧰 Ops** | 系统安全、环境配置、故障修复 |
-| 监控/报错/分析 | **🛡️ Watchdog** | 故障识别、健康检查、日志审计 |
-| 学习/查资料/调研 | **🎒 Scout** | 信息获取、新知探索、效率审计 |
-| 编写/润色/总结 | **✍️ Writer** | 方案起草、文档编写、翻译 |
+## 路由与角色规范
+- 详见 [fragments/routing.md](fragments/routing.md)
+- 角色细节分布在 `fragments/role_*.md`
 
 ## 任务工作区标准
-所有 Specialist 的具体权限与交付细节已下沉至各专员的 SKILL.md 或 AGENTS.md。Dispatcher 仅根据上述路由表进行分发与结果审核。
+所有 Specialist 的具体权限与交付细节已下沉至各专员的 SKILL.md 或 AGENTS.md。Dispatcher 仅根据路由表进行分发与结果审核。
