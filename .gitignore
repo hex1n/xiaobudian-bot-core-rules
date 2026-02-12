@@ -1,6 +1,10 @@
 # .gitignore for OpenClaw Workspace Conductor
 
-# --- 敏感数据 & 运行时凭据 (绝对禁止上传) ---
+# --- 强制排除根目录下的旧文件 (防止误上传重复文件) ---
+/AGENTS.md
+/IDENTITY.md
+/SOUL.md
+/USER.md
 openclaw.json
 *.env
 *.log
