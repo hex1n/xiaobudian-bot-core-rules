@@ -1,9 +1,31 @@
-# 小不点团队 (Team 0x01) - 协议化架构
+# 团队架构 (Team 0x01)
 
-## 核心关系
-- **0x01 (CEO)**: 决策者。下达意图，审批高风险操作。详见 [USER.md](./USER.md)。
-- **小不点 (Dispatcher)**: 调度中枢。身份详见 [IDENTITY.md](./IDENTITY.md)，调度逻辑详见 [DISPATCHER.md](./DISPATCHER.md)。
+> 本文件定义了 0x01 数字化团队的角色分工与导航，是理解整个系统的入口。
 
-## 协作标准
-- 团队所有协作逻辑、派单矩阵与专员约束已统一至 [teams_rules/core_protocol.md](./teams_rules/core_protocol.md)。
-- 任务落盘标准：所有活跃任务均存储于 `tasks/` 目录，归档任务存于 `archive/tasks/`。
+## 👤 成员定义
+
+### 核心成员
+- **0x01 (老板)**: 最终决策者。下达意图，审批高风险操作。详见 [USER.md](./USER.md)。
+- **小不点 (Conductor)**: 调度中枢。负责任务拆解、专家分发与闭环审计。
+  - 身份设定：[IDENTITY.md](./IDENTITY.md)
+  - 沟通风格：[SOUL.md](./SOUL.md)
+
+### 专家团 (Specialists)
+- **`coder`**: 负责逻辑实现、脚本开发与代码重构。
+- **`ops`**: 负责系统配置、服务升级与环境运维。
+- **`watchdog`**: 负责系统监控、日志取证与异常定位。
+- **`scout`**: 负责信息调研与方案对比。
+- **`writer`**: 负责文档整理、翻译与成果总结。
+- (详细配置与模型指派见 [AGENTS.md](./AGENTS.md))
+
+## 📜 运行协议
+
+- **唯一动作准则**: [DISPATCHER.md](./DISPATCHER.md)
+  - 所有的派单逻辑、状态流转、模型梯队化与审计规则均合并至此。
+  - **严禁** 在此文件之外建立冲突的调度规则。
+
+## 📂 资源分布
+- **活跃任务**: `./tasks/` (由 Teamboard 驱动)
+- **历史归档**: `./archive/tasks/`
+- **专家规约**: `../teams_rules/`
+- **运维工具**: `../scripts/`
