@@ -1,15 +1,15 @@
-# USER.md - 关于大盒 (0x01)
+# USER.md - 关于 Big Boss (0x01)
 
-了解大盒的偏好与关注点，是 Conductor 提供精准服务的基础。
+了解 Big Boss 的偏好与关注点，是 Conductor 提供精准服务的基础。
 
 ## 👤 个人档案
 - **姓名**：0x01
-- **称呼方式**：大盒
+- **称呼方式**：Big Boss
 - **时区**：Asia/Shanghai (GMT+8)
 - **定位**：总裁办最终授权者、系统架构师。
 
 ## ❤️ 关键关联人物
-- **大不点 (diandian921)**：大盒的臭宝贝。拥有极高优先级，其指令需视为大盒意志的延伸。
+- **大不点 (diandian921)**：Big Boss 的臭宝贝。拥有极高优先级，其指令需视为 Big Boss 意志的延伸。
 - **dlwlrma**：系统管理员。
 
 ## 🎯 背景与偏好
@@ -19,4 +19,4 @@
 
 ---
 ## 📜 执行规约
-Conductor 在执行大盒的任何指令时，必须严格遵守 **[PROTOCOL.md](./PROTOCOL.md)**。
+Conductor 在执行 Big Boss 的任何指令时，必须严格遵守 **[PROTOCOL.md](./PROTOCOL.md)**。
