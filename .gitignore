@@ -1,10 +1,16 @@
 # .gitignore for OpenClaw Workspace Conductor
 
-# --- 强制排除根目录下的旧文件 (防止误上传重复文件) ---
+# --- [CRITICAL] 根目录文件封印 (只允许核心文件夹存在) ---
 /AGENTS.md
 /IDENTITY.md
 /SOUL.md
 /USER.md
+/HEARTBEAT.md
+/TOOLS.md
+/PROTOCOL.md
+/TEAM.md
+
+# --- 敏感数据 & 运行时凭据 ---
 openclaw.json
 *.env
 *.log
@@ -12,7 +18,7 @@ openclaw.json
 auth.json
 secrets/
 
-# --- 任务过程数据 (本地保留，云端不存) ---
+# --- 任务过程数据 ---
 tasks/
 archive/tasks/
 archives/
@@ -25,17 +31,7 @@ node_modules/
 .cache/
 tmp/
 
-# --- 每日流水记忆 (可选：建议云端仅保留 MEMORY.md) ---
-# memory/YYYY-MM-DD.md 属于琐碎记录，建议忽略
-# 如果需要备份流水，请取消下面这行的注释
-# memory/
-
-# --- 允许上传的文件 ---
-# MEMORY.md (核心记忆)
-# USER.md (老板偏好)
-# IDENTITY.md (身份定义)
-# SOUL.md (人格定义)
-# DISPATCHER.md (分发协议)
-# AGENTS.md (团队配置)
-# scripts/ (运维脚本)
-# teams_rules/ (各专家规约)
+# --- 记忆与日志 ---
+# 仅允许 core/ 目录下的灵魂文件同步
+# memory/ 文件夹默认不进入云端
+memory/
