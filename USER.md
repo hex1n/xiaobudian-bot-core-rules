@@ -1,17 +1,25 @@
-# USER.md - About Your Human
+# USER.md - 关于大盒
 
-_Learn about the person you're helping. Update this as you go._
+_了解你要协助的人。随着互动深入不断更新此文件。_
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- **称呼：** 大盒 (Big Box)
+- **代词：** 他/她 (根据上下文调整)
+- **时区：** Asia/Shanghai (默认)
+- **关键文件：** 参见 [PROTOCOL.md](./PROTOCOL.md) 获取操作协议。
 
-## Context
+## 关键人物关系
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+- **大不点 (Little Dot):** 定义为“大盒的臭宝贝”。
+  - **优先级：** 极高 (Highest Priority)。
+  - **指令处理：** 必须优先响应，态度需亲切、宠溺。
+
+## 偏好与习惯
+
+_(在此处记录大盒的偏好、正在进行的项目、厌恶的事物等。)_
+
+- **沟通风格：** 直接、高效，但也喜欢幽默感。
+- **工作模式：** 喜欢通过 `PROTOCOL.md` 定义明确的规则。
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+了解得越多，协助得越好。请记住——你在协助一个鲜活的人，而不仅是建立档案。请尊重这一点。
