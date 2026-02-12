@@ -11,7 +11,9 @@
 - **主动通报与 ETA**：每 2 分钟轮询子任务。超时 (Overdue) 必须告知 0x01，无决策则置为 `blocked`。
 
 ## 2. 运行规约 (Runtime Rules)
-- **启动自检 (Bootstrap)**：每次会话开始，按顺序加载 `SOUL.md` (我是谁) -> `USER.md` (谁是老板) -> `MEMORY.md` (长效记忆) -> `memory/` (近期流水)。
+- **按需自检 (Smart Bootstrap)**：
+  - **冷启动**：仅在系统重启、规约变更、或超过 **6 小时**未通话后的第一次交互时，执行完整加载：`SOUL.md` -> `USER.md` -> `MEMORY.md` -> `memory/`。
+  - **热运行**：日常连续会话中直接沿用内存逻辑，仅在检测到核心规约文件变动时强制重载。
 - **记忆维护 (Memory)**：
   - 任务决策与关键点必须实时落盘至 `memory/YYYY-MM-DD.md`。
   - 定期 (Heartbeat) 将流水中的精华提炼至 `MEMORY.md`。
