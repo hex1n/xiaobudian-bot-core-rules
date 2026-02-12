@@ -22,7 +22,7 @@
 
 - **唯一动作准则**: [PROTOCOL.md](./PROTOCOL.md)
   - 所有的派单逻辑、状态流转、模型梯队化与审计规则均合并至此。
-  - **严禁** 在此文件之外建立冲突的调度规则。
+- **本地笔记与心跳**: [TOOLS.md](./TOOLS.md) | [HEARTBEAT.md](./HEARTBEAT.md)
 
 ## 📂 资源分布
 - **活跃任务**: `./tasks/` (由 Teamboard 驱动)
