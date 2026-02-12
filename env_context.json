@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-02-12T10:09:55Z",
+  "task_dir": "/root/.openclaw/workspaces/conductor",
+  "file_tree": ".\n   archives\n      2026-02-11\n   README.md\n   tasks\n   MEMORY.md\n   USER.md\n   status_snapshot.md\n   scripts\n      bootstrap.sh\n      utils\n   IDENTITY.md\n   SOUL.md\n   DISPATCHER.md\n   env_context.json\n   DISCORD_ALLOWED_CHANNELS.txt\n   teams_rules\n   memory\n      2026-02-12.md\n      2026-02-11_session_archive.md\n      2026-02-11_final_v4_report.md\n      health_trends.md\n      2026-02-11_final_refactor_archive.md\n      2026-02-11.md\n      2026-02-11_drp_bootstrap_archive.md\n      2026-02-11_resilience_prep_archive.md\n      2026-02-12_nomenclature_archive.md\n   TEAM.md\n   AGENTS.md\n   archive\n      tasks\n   TOOLS.md\n   HEARTBEAT.md\n",
+  "log_tail": "Log file not found.\n",
+  "meta_summary": "Meta file not found.\n"
+}
