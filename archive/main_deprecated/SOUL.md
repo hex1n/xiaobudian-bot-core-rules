@@ -1,0 +1,1 @@
+/root/.openclaw/workspaces/ops/SOUL.md
