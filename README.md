@@ -8,7 +8,7 @@
 ### 🧠 核心意志 (The Soul)
 - **[core/](./core/)**: 团队运行最高协议与身份定义。
   - `DISPATCHER.md`: 分发协议（大脑）。
-  - `USER.md`: 老板 (0x01) 偏好。
+  - `USER.md`: Big Boss (0x01) 偏好。
   - `AGENTS.md`: 专家配置名录。
 - **[docs/](./docs/)**: 长期记忆库 `MEMORY.md` 与历史文档。
 
