@@ -1,0 +1,17 @@
+{
+  "task_id": "YYYYMMDD-HHMM-<slug>",
+  "risk_level": "low",
+  "mode": "team", 
+  "executors": ["Scout"],
+  "verifier": "Watchdog",
+  "exception_reason": "",
+  "tasks": {
+    "Scout": "tasks/<id>/plan/scout.task.json",
+    "Watchdog": "tasks/<id>/plan/watchdog.task.json"
+  },
+  "expected_artifacts": {
+    "Scout": "tasks/<id>/returns/SCOUT_RETURN.md",
+    "Watchdog": "tasks/<id>/verify/WATCHDOG_VERIFY.md",
+    "Conductor": "tasks/<id>/ship/DECISION.md"
+  }
+}

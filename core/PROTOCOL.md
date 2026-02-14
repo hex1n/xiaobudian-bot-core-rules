@@ -25,6 +25,7 @@
 - **工具权限白名单**：严格执行 `MATRIX.md` 定义的 Tool Tags 白名单，未授权工具请求将被自动驳回。
 - **强制度团队模式（Orchestrator-only）**：Conductor 默认只负责 Intake/Plan/Gate/收口/审计，**不得**直接执行任务性工作（抓取、写产物、跑命令）。任何任务必须派发给至少 1 个执行专家（Executor）。
 - **强制验收者（Verifier）**：所有任务必须指定 **Watchdog** 作为验收者（Verifier），对 Executor 交付物进行独立验证；未通过验收不得进入 Ship。例外必须写明 `exception_reason` 并由 Big Boss 明确授权。
+- **统一入口（强制）**：Team Mode 的派工必须通过 `core/scripts/run_dispatch_plan.py <dispatch_plan.json>` 完成预检：先 `preflight_team_mode.py`（团队/验收门禁）再 `dispatch_validator.py`（工具域校验）。未通过不得 spawn。
 
 ## 4. 自动化维护
 - **心跳审计 (Heartbeat)**：周期性检查邮件、日历、活跃任务。
