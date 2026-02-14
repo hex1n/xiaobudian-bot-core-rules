@@ -8,7 +8,7 @@
 
 | Expert | Primary Domain (绝对领地) | Core Responsibilities | Tool Tags (Permissions) |
 | :--- | :--- | :--- | :--- |
-| **Conductor** | **Central Dispatch & Audit** | Task decomposition, priority sorting, global logic auditing. The only entity allowed to assign work to others. | `@sessions`, `@cron`, `@gateway`, `@memory` |
+| **Conductor** | **Central Dispatch & Audit** | Intake, decomposition, routing, audit, final decision. **Orchestrator-only**: must not execute tasks directly. | `read`, `@comms` |
 | **Coder** | **Logic Implementation** | Writing code, refactoring scripts, technical stack selection. Focus on *idempotent logic* (The "What"). | `@fs:workspace`, `@exec:dev` (git, python, npm) |
 | **Ops** | **System Stability** | Environment config, deployment, system monitoring, alias routing. Focus on *execution context* (The "How/Where"). | `@sys:admin`, `@net:internal`, `@docker`, `@systemd` |
 | **Watchdog** | **Internal Security** | Operational auditing, forensic analysis, behavior circuit breaking. The "Internal Affairs". | `@proc:read`, `@fs:audit`, `@logs:read`, `write` |
@@ -19,6 +19,7 @@
 
 | Tag | Allowed Tools | Description |
 | :--- | :--- | :--- |
+| `@comms` | `message`, `process` | Communication and lightweight coordination (no web, no exec) |
 | `@sessions` | `browser`, `message`, `canvas`, `nodes`, `process` | Interaction with user sessions & UI |
 | `@cron` | `exec`, `write`, `read` | Scheduled tasks & maintenance |
 | `@gateway` | `exec` | Gateway daemon control |

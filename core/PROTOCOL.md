@@ -23,6 +23,8 @@
 - **自动化收割**：任务结束执行 `result_harvester.sh`。
 - **写操作门禁**：修改规约文件必须提供 Diff 并请求授权。
 - **工具权限白名单**：严格执行 `MATRIX.md` 定义的 Tool Tags 白名单，未授权工具请求将被自动驳回。
+- **强制度团队模式（Orchestrator-only）**：Conductor 默认只负责 Intake/Plan/Gate/收口/审计，**不得**直接执行任务性工作（抓取、写产物、跑命令）。任何任务必须派发给至少 1 个执行专家（Executor）。
+- **强制验收者（Verifier）**：所有任务必须指定 **Watchdog** 作为验收者（Verifier），对 Executor 交付物进行独立验证；未通过验收不得进入 Ship。例外必须写明 `exception_reason` 并由 Big Boss 明确授权。
 
 ## 4. 自动化维护
 - **心跳审计 (Heartbeat)**：周期性检查邮件、日历、活跃任务。
