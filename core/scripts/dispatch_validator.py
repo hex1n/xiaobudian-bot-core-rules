@@ -14,33 +14,33 @@ from typing import Dict, List, Tuple, Union, Any, Set
 # Path to the MATRIX.md source of truth
 MATRIX_PATH = Path("/root/.openclaw/workspaces/conductor/MATRIX.md")
 
-# Mapping for abstract tags to concrete tools
-TAG_MAP = {
-    "@sessions": {"browser", "message", "canvas", "nodes", "process"}, 
-    "@cron": {"exec", "write", "read"}, 
-    "@gateway": {"exec"}, 
-    "@memory": {"read", "write", "edit", "web_search"}, 
-    "@fs:workspace": {"read", "write", "edit", "exec"},
-    "@exec:dev": {"exec", "read", "write"},
-    "@sys:admin": {"exec"},
-    "@net:internal": {"exec", "web_fetch"},
-    "@docker": {"exec"},
-    "@systemd": {"exec"},
-    "@proc:read": {"exec", "process"},
-    "@fs:audit": {"read", "exec"},
-    "@logs:read": {"read", "exec"},
-    "@net:external": {"web_search", "web_fetch", "browser"},
-    "@web_search": {"web_search"},
-    "@browser": {"browser"},
-    "@fs:docs": {"read", "write", "edit"},
-    "@markdown": {"read", "write", "edit"}
-}
-
 STANDARD_TOOLS = {
     "read", "write", "edit", "exec", "process", 
     "web_search", "web_fetch", "browser", "canvas", 
     "nodes", "message", "tts"
 }
+
+def parse_tag_definitions(content: str) -> Dict[str, Set[str]]:
+    """Parses MATRIX.md content to extract Tag Definitions."""
+    tag_map = {}
+    try:
+        # Match table starting with | Tag | Allowed Tools | ...
+        table_pattern = re.compile(r'\| Tag \|.*?Allowed Tools.*?\|\n\| :--- \|.*?\|\n((?:\| .*? \|\n)+)', re.DOTALL | re.IGNORECASE)
+        match = table_pattern.search(content)
+        if match:
+            rows = match.group(1).strip().split('\n')
+            for row in rows:
+                cols = [c.strip() for c in row.split('|') if c.strip()]
+                if len(cols) >= 2:
+                    tag_name = cols[0].strip('`').strip()
+                    tools_str = cols[1].replace('`', '')
+                    # Extract tools (comma separated or space separated)
+                    tools = set(re.findall(r'[\w\-]+', tools_str))
+                    tag_map[tag_name] = tools
+    except Exception as e:
+        print(f"Warning: Failed to parse tag definitions: {e}")
+    return tag_map
+
 
 def parse_matrix(matrix_path: Path) -> Dict[str, Set[str]]:
     """Parses MATRIX.md to extract Expert -> Allowed Tools mapping."""
@@ -49,7 +49,11 @@ def parse_matrix(matrix_path: Path) -> Dict[str, Set[str]]:
     
     try:
         content = matrix_path.read_text()
-        # Find the Absolute Domains table
+        
+        # 1. Parse Tag Definitions first
+        tag_map = parse_tag_definitions(content)
+        
+        # 2. Find the Absolute Domains table
         table_pattern = re.compile(r'\| Expert \|.*?\|\n\| :--- \|.*?\|\n((?:\| .*? \|\n)+)', re.DOTALL)
         match = table_pattern.search(content)
         if not match:
@@ -69,8 +73,8 @@ def parse_matrix(matrix_path: Path) -> Dict[str, Set[str]]:
             
             allowed_tools = set()
             for tag in found_tags:
-                if tag in TAG_MAP:
-                    allowed_tools.update(TAG_MAP[tag])
+                if tag in tag_map:
+                    allowed_tools.update(tag_map[tag])
                 elif tag in STANDARD_TOOLS:
                     allowed_tools.add(tag)
             
