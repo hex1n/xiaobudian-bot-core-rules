@@ -27,6 +27,10 @@
 - **强制验收者（Verifier）**：所有任务必须指定 **Watchdog** 作为验收者（Verifier），对 Executor 交付物进行独立验证；未通过验收不得进入 Ship。例外必须写明 `exception_reason` 并由 Big Boss 明确授权。
 - **统一入口（强制）**：Team Mode 的派工必须通过 `core/scripts/run_dispatch_plan.py <dispatch_plan.json>` 完成预检：先 `preflight_team_mode.py`（团队/验收门禁）再 `dispatch_validator.py`（工具域校验）。未通过不得 spawn。
 
-## 4. 自动化维护
+## 4. Claude Teams 化（强复刻 / 模式2）
+- **自然语言自动路由**：默认按 `core/ROUTER.md` 选择 Executor；强制 Watchdog Verifier。
+- **对外唯一流程文档**：`process/WORKFLOW.md`。
+
+## 5. 自动化维护
 - **心跳审计 (Heartbeat)**：周期性检查邮件、日历、活跃任务。
 - **任务归档**：历史任务每日 4:00 自动移至 `archive/tasks/`。
