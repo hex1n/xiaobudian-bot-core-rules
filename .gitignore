@@ -35,3 +35,7 @@ tmp/
 # 仅允许 core/ 目录下的灵魂文件同步
 # memory/ 文件夹默认不进入云端
 memory/
+
+# Local / generated
+env_context.json
+rules/*.generated.md
